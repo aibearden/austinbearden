@@ -2,7 +2,7 @@
 
 interface RecommendationProps {};
 
-export default function Recommendation({}: RecommendationsProps) {
+export default function Recommendation({}: RecommendationProps) {
     
     return (
         <div>recommendation</div>

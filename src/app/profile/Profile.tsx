@@ -1,7 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import selfImage from "../../assets/self_image.jpeg";
+import { motion, useScroll } from "framer-motion";
 
 interface ProfileProps {
 
@@ -14,11 +13,11 @@ export default function Profile({ }: ProfileProps) {
     const {scrollYProgress} = useScroll();
 
     const openLinkedInProfile = () => {
-        window.open('https://www.linkedin.com/in/austin-bearden-3a7466266/', '_blank');
+        window.open("https://www.linkedin.com/in/austin-bearden-3a7466266/", "_blank");
     }
 
     const openGitHubProfile = () => {
-        window.open('https://github.com/aibearden', '_blank');
+        window.open("https://github.com/aibearden", "_blank");
     }
    
     return (
