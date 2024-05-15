@@ -1,8 +1,7 @@
 "use client"
 
 import { motion, useScroll } from "framer-motion";
-import {profile} from "../../data/profille.json";
-
+import { profile } from "@/data/profile";
 interface ProfileDataInterface {
     name: string,
     profileImageUrl: string,
