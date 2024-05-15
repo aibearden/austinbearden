@@ -5,6 +5,6 @@ import Recommendation from "./Recommendation";
 export default function ListOfRecommendations() {
 
     return (
-        <div><Recommendation /></div>
+        <div></div>
     );
 }

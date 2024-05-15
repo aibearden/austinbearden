@@ -38,7 +38,7 @@ export default function Profile({ }: ProfileProps) {
                 <motion.img className="fixed top-0 left-0 right-0 h-[10px] bg-red-300 origin-left" style={{scaleX: scrollYProgress}} />
                 <div id={"introduction"} className="flex flex-col items-center">
                     <h1 id="title" className="text-3xl font-semibold">Austin Bearden</h1>
-                    <p id="description" className="p-4 text-center">As a Software Engineer at 3Aware, I've applied my creativity and passion for software development to build innovative and user-friendly applications using React and Java Spring Boot on both AWS and GCP. I led the front-end development and introduced standards and best practices for React, Javascript, and design.</p>
+                    <p id="description" className="p-4 text-center">As a Software Engineer at 3Aware, I&apos;ve applied my creativity and passion for software development to build innovative and user-friendly applications using React and Java Spring Boot on both AWS and GCP. I led the front-end development and introduced standards and best practices for React, Javascript, and design.</p>
                 </div>
                 <div id="links" className="grid grid-cols-2 p-1">
                     <button id="github" onClick={() => openGitHubProfile()} className="flex flex-col justify-center items-center bg-gray-500 bg-opacity-40 rounded-2xl m-1">
