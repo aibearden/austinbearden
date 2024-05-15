@@ -30,7 +30,8 @@ export default function Profile({ }: ProfileProps) {
    
     return (
         <div className="lg:grid lg:grid-rows-2 flex flex-row justify-center items-center h-full w-full">
-            <div id="profile" className="w-2/3 h-4/5 bg-slate-500 bg-opacity-60 grid grid-rows-3 rounded-lg shadow-lg m-4 ml-2">
+            <div id="profile" className="lg:h-1/2 lg:w-full w-2/3 h-4/5 lg:flex lg:flex-col lg:justify-center lg:items-center bg-opacity-60 grid grid-rows-3 rounded-lg shadow-lg">
+                
                 <div id="image" className="flex flex-row justify-center items-center">
                     {/* <motion.div 
                         initial={{scale: 0}} 
@@ -48,7 +49,8 @@ export default function Profile({ }: ProfileProps) {
                     <h1 id="title" className="text-3xl font-semibold">{}</h1>
                     <p id="description" className="p-4 text-center">{profileData.description}</p>
                 </div>
-                <div id="links" className="grid grid-cols-2 p-1">
+            </div>
+            <div id="links" className="lg:h-1/2 lg:grid lg:grid-cols-2 lg:p-1">
                     <button id="github" onClick={() => openGitHubProfile()} className="flex flex-col justify-center items-center bg-gray-500 bg-opacity-40 rounded-2xl m-1">
                         <h4>GitHub</h4>
                     </button>
@@ -62,7 +64,6 @@ export default function Profile({ }: ProfileProps) {
                         <h4>Source Code</h4>
                     </button>
                 </div>
-            </div>
         </div>
     );
 }
