@@ -1,8 +1,7 @@
 "use client"
 
 import { profile } from "@/data/profile";
-
-import profileBackgroundImage from "../../../assets/self_background_bw.jpg";
+import profileBackgroundImage from "../../../assets/self_bg_bw.jpeg";
 
 interface ProfileDataInterface {
     name: string,
