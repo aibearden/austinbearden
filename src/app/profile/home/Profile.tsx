@@ -35,13 +35,16 @@ export default function Profile({ }: ProfileProps) {
                     <img src={profileData.profileImageUrl} className="shadow-lg rounded-full max-w-[400px] w-1/5 h-auto m-4" alt="profile image" />
                 </div>
             </div>
-            <div id="body" className="w-full flex flex-col justify-start items-center">
-                <div id="description" className="w-10/12 bg-gray-600 bg-opacity-70 max-w-[1000px] h-auto p-8 rounded-2xl shadow-lg">{profileData.description}</div>
+            <div id="body" className="w-full h-full flex flex-col justify-start items-center">
+                <div id="description" className="w-11/12 h-full bg-blue_font bg-opacity-50 p-8 rounded-2xl shadow-lg">{profileData.description}</div>
             </div>
-            <div id="footer" className="w-full flex flex-row justify-between items-center">
-                <button className={buttonStyles}>Recommendations</button>
-                <button className={buttonStyles}>Articles</button>
-                <button className={buttonStyles}>Profile Links</button>
+            <div id="footer" className="w-full mt-10 flex flex-col justify-between items-center">
+                <div id="navigation" className="w-11/12 flex flex-row justify-center items-baseline">
+                    <button className={buttonStyles}>Recommendations</button>
+                    <button className={buttonStyles}>Articles</button>
+                    <button className={buttonStyles}>Profile Links</button>
+                </div>
+                <span className="self-end p-4">Bright Idea Realities | 2024</span>
             </div>
         </div>
     );
