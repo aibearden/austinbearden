@@ -1,4 +1,4 @@
-import Profile from "./profile/Profile";
+import Profile from "./profile/home/Profile";
 
 export default function Home() {
   return (
