@@ -21,7 +21,7 @@ interface ProfileProps {
 export default function Profile({ }: ProfileProps) {
     const profileData = profile as ProfileDataInterface;
 
-    const buttonStyles = "w-full h-[100px] bg-gray-400 justify-self-center m-2 rounded-lg shadow-lg";
+    const buttonStyles = "w-full h-[100px] bg-gray-600 bg-opacity-70 justify-self-center m-2 rounded-lg shadow-lg";
    
     return (
         <div className="h-full w-full grid grid-rows-3">
@@ -31,13 +31,13 @@ export default function Profile({ }: ProfileProps) {
                     <span className="flex flex-col justify-evenly items-end h-1/2 mr-4">
                         <h2 className="text-5xl text-gray-600 text-end">{profileData.name}</h2>
                         <h4 className="text-3xl text-gray-500 text-end">{profileData.title}</h4>
-                        <h5 className="text-2xl text-blue-600 text-end">{profileData.tagLine}</h5>
+                        <h5 className="text-2xl text-blue_font text-end">{profileData.tagLine}</h5>
                     </span>
                     <img src={profileData.profileImageUrl} className="shadow-lg rounded-full max-w-[400px] w-1/5 h-auto m-4" alt="profile image" />
                 </div>
             </div>
             <div id="body" className="w-full flex flex-col justify-start items-center">
-                <div id="description" className="w-10/12 bg-gray-400 max-w-[1000px] h-auto p-8 rounded-2xl shadow-lg">{profileData.description}</div>
+                <div id="description" className="w-10/12 bg-gray-600 bg-opacity-70 max-w-[1000px] h-auto p-8 rounded-2xl shadow-lg">{profileData.description}</div>
             </div>
             <div id="footer" className="w-full flex flex-row justify-between items-center">
                 <button className={buttonStyles}>Recommendations</button>
