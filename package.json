@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@dhaiwat10/react-link-preview": "^1.15.0",
     "framer-motion": "^11.2.2",
     "next": "14.2.3",
     "react": "^18",
