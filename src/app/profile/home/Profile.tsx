@@ -2,6 +2,7 @@
 
 import { profile } from "@/data/profile";
 import profileBackgroundImage from "../../../assets/self_bg_bw.jpeg";
+import Link from "next/link";
 
 interface ProfileDataInterface {
     name: string,
@@ -29,8 +30,8 @@ export default function Profile({ }: ProfileProps) {
                 <div className="z-10 w-full flex flex-row justify-end items-center">
                     <span className="flex flex-col justify-evenly items-end h-1/2 mr-4">
                         <h2 className="sm:text-2xl md:text-3xl lg:text-5xl text-2xl text-gray-600 text-end">{profileData.name}</h2>
-                        <h4 className="sm:text-2xl lg:text-3xl text-xl text-red-400 text-end">{profileData.title}</h4>
-                        <h5 className="sm:text-lg md:text-xl lg:text-2xl text-lg text-gray-600 text-end">{profileData.tagLine}</h5>
+                        <h4 className="sm:text-2xl lg:text-3xl text-xl text-gray-50 text-end">{profileData.title}</h4>
+                        <h5 className="sm:text-lg md:text-xl lg:text-2xl text-lg text-blue-600 text-end">{profileData.tagLine}</h5>
                     </span>
                     <img src={profileData.profileImageUrl} className="shadow-lg rounded-full max-w-[400px] w-1/5 h-auto m-4" alt="profile image" />
                 </div>
@@ -40,9 +41,9 @@ export default function Profile({ }: ProfileProps) {
             </div>
             <div id="footer" className="w-full mt-10 flex flex-col justify-between items-center">
                 <div id="navigation" className="w-11/12 flex flex-row justify-center items-baseline">
-                    <button className={buttonStyles}>Recommendations</button>
-                    <button className={buttonStyles}>Articles</button>
-                    <button className={buttonStyles}>Profile Links</button>
+                    <Link className={buttonStyles} href="/recommendations">Recommendations</Link>
+                    <Link className={buttonStyles} href="/articles">Articles</Link>
+                    <Link className={buttonStyles} href="/links">Profile Links</Link>
                 </div>
                 <span className="self-end p-4">Bright Idea Realities | 2024</span>
             </div>
