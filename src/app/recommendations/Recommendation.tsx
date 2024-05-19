@@ -19,14 +19,14 @@ export default function Recommendation({recommendation}: RecommendationProps) {
                 <img 
                     src={recommendation.profile_image_url} 
                     alt="recommendation profile image"
-                    className="rounded-full h-[130px]"
+                    className="rounded-full h-[100px]"
                 />
             </div>
             <div className="rows-span-1">
-                <h2 className="text-3xl text-gray-50 text-center">{recommendation.author}</h2>
-                <h3 className="text-xl text-blue-800 text-center">{recommendation.title}</h3>
+                <h2 className="text-2xl text-gray-50 text-center">{recommendation.author}</h2>
+                <h3 className="text-lg text-blue-800 text-center">{recommendation.title}</h3>
             </div>
-            <p className="rows-span-3 p-4 pl-8 pr-8">{recommendation.note}</p>
+            <p className="rows-span-3 p-4 pl-8 pr-8 text-sm">{recommendation.note}</p>
         </div>
     );
 }
