@@ -26,7 +26,7 @@ export default function Recommendation({recommendation}: RecommendationProps) {
                 <h2 className="text-3xl text-gray-50 text-center">{recommendation.author}</h2>
                 <h3 className="text-xl text-blue-800 text-center">{recommendation.title}</h3>
             </div>
-            <p className="rows-span-3">{recommendation.note}</p>
+            <p className="rows-span-3 p-4 pl-8 pr-8">{recommendation.note}</p>
         </div>
     );
 }

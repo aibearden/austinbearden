@@ -8,7 +8,7 @@ export default function ListOfRecommendations() {
 
     return (
         <SecondaryLayout>
-            <div className="h-full w-2/3 self-center grid grid-rows-4">
+            <div className="h-full w-2/3 max-w-[680px] self-center grid grid-rows-4">
                 <div className="row-span-1 flex flex-row justify-center content-end">
                     <h2 className="text-2xl self-center">Recommendations</h2>
                 </div>
