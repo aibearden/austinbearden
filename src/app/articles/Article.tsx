@@ -30,9 +30,49 @@ interface ArticleProps {
     article: ArticleInterface
 }
 
+function ArticleSubSubSubSection({subSection, index}: {subSection: SubSubSections, index: number}) {
+    return (
+        <>
+            <h4 className="text-lg w-full text-left">&emsp;&emsp;{`${subSection.heading}`}</h4>
+            <div className="text-left">
+                {subSection.points.map((point, pointIndex) => (
+                        <li key={point + index+1}>&emsp;&emsp;&emsp;{`- ${point}`}</li>
+                ))}
+            </div>
+        </>
+    );
+}
+
+function ArticleSubSubSection({subSection, index}: {subSection: ArticleBodyMainSectionSubSections, index: number}) {
+    return (
+        <>
+            <h3 className="w-full text-2xl">&emsp;{`${subSection.heading}`}</h3>
+            <div className="rounded-lg p-2">
+                {subSection.subPoints.map((subPoint, subPointIndex) => (
+                    <ArticleSubSubSubSection subSection={subPoint} index={subPointIndex} />
+                ))}
+            </div>
+        </>
+    );
+}
+
+function ArticleMainSubSection({mainSubSection, index}: {mainSubSection: ArticleBodyMainSection, index: number}) {
+
+    return (
+        <>
+            <h2 className="text-2xl text-gray-700 mt-4">{`${mainSubSection.heading}`}</h2>
+            <div className="bg-gray-400 bg-opacity-10 rounded-lg shadow-lg">
+                {mainSubSection.subSections.map((subSection, subIndex) => (
+                    <ArticleSubSubSection subSection={subSection} index={subIndex} />
+                ))}
+            </div>
+        </>
+    )
+}
+
 export default function Article({ article }: ArticleProps) {
     return (
-        <div className="w-full h-fit bg-slate-300 bg-opacity-25 flex flex-col justify-center content-center p-4">
+        <div className="w-full h-fit bg-slate-300 bg-opacity-25 flex flex-col justify-center content-center">
             <img src={article.bannerImageUrl} className="shadow-lg w-full h-auto" alt="article image" />
             <h1 className="text-4xl">{article.title}</h1>
             <h4 className="text-sm">by {article.author}</h4>
@@ -41,25 +81,7 @@ export default function Article({ article }: ArticleProps) {
                 <title>{article.body.heading}</title>
                 <ul>
                     {article?.body.mainSections.map((mainSection, index) => (
-                        <>
-                            <li key={mainSection.heading + index+1}>{`${index+1}) ${mainSection.heading}`}</li>
-                            {mainSection.subSections.map((subSection, subIndex) => (
-                                <>
-                                    <li key={subSection.heading + index+1}>&emsp;{`${subIndex+1}) ${subSection.heading}`}</li>
-                                    {subSection.subPoints.map((subPoint, subPointIndex) => (
-                                        <>
-                                            <li key={subPoint.heading + index+1}>&emsp;&emsp;{`${subPointIndex+1}) ${subPoint.heading}`}</li>
-                                            {subPoint.points.map((point, pointIndex) => (
-                                                <>
-                                                    <li key={point + index+1}>&emsp;&emsp;&emsp;{`${pointIndex+1}) ${point}`}</li>
-
-                                                </>
-                                            ))}
-                                        </>
-                                    ))}
-                                </>
-                            ))}
-                        </>
+                        <ArticleMainSubSection mainSubSection={mainSection} index={index} />
                     ))}
                 </ul>
             </p>
