@@ -1,6 +1,6 @@
 export const articles = [
     {
-        "bannerImageUrl": "",
+        "bannerImageUrl": "https://media.licdn.com/dms/image/D4E16AQGhnfOiD6ankA/profile-displaybackgroundimage-shrink_350_1400/0/1676510339106?e=1721865600&v=beta&t=5YVKngXYJong8UL5sgTblwvjf4MlOR1JZHe9-rWEUFs",
         "title": "Front-End Development Vision",
         "author": "Austin Bearden",
         "date": "Tuesday, May 21st, 2024",

@@ -29,22 +29,39 @@ interface ArticleProps {
     article: ArticleInterface
 }
 
-export default function Article({article}: ArticleProps) {
+export default function Article({ article }: ArticleProps) {
     return (
-        <div className="w-full h-fit bg-slate-300 bg-opacity-25 flex flex-col justify-center content-center">
+        <div className="w-full h-fit bg-slate-300 bg-opacity-25 flex flex-col justify-center content-center p-4">
+            <img src={article.bannerImageUrl} className="shadow-lg w-full h-auto" alt="article image" />
             <h1 className="text-4xl">{article.title}</h1>
             <h4 className="text-sm">by {article.author}</h4>
             <h4 className="text-sm">{article.date}</h4>
-            <body>
+            <p className="mt-8">
                 <title>{article.body.heading}</title>
-                <body>
-                    {article?.body.mainSections.map((section, index) => (
+                <ul>
+                    {article?.body.mainSections.map((mainSection, index) => (
                         <>
-                            
+                            <li key={mainSection.heading + index+1}>{`${index+1}) ${mainSection.heading}`}</li>
+                            {mainSection.subSections.map((subSection, subIndex) => (
+                                <>
+                                    <li key={subSection.heading + index+1}>&emsp;{`${subIndex+1}) ${subSection.heading}`}</li>
+                                    {subSection.subPoints.map((subPoint, subPointIndex) => (
+                                        <>
+                                            <li key={subPoint.heading + index+1}>&emsp;&emsp;{`${subPointIndex+1}) ${subPoint.heading}`}</li>
+                                            {subPoint.points.map((point, pointIndex) => (
+                                                <>
+                                                    <li key={point + index+1}>&emsp;&emsp;&emsp;{`${pointIndex+1}) ${point}`}</li>
+
+                                                </>
+                                            ))}
+                                        </>
+                                    ))}
+                                </>
+                            ))}
                         </>
                     ))}
-                </body>
-            </body>
+                </ul>
+            </p>
         </div>
     );
 }
