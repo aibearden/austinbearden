@@ -14,6 +14,7 @@ interface ArticleBodyMainSection {
 }
 
 export interface ArticleInterface {
+    concat(article: ArticleInterface): ArticleInterface
     bannerImageUrl: string,
     title: string,
     author: string,
