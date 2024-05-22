@@ -36,7 +36,7 @@ function ArticleSubSubSubSection({subSection, index}: {subSection: SubSubSection
             <h4 className="text-lg w-full text-left">&emsp;&emsp;{`${subSection.heading}`}</h4>
             <div className="text-left">
                 {subSection.points.map((point, pointIndex) => (
-                        <li key={point + index+1}>&emsp;&emsp;&emsp;{`- ${point}`}</li>
+                        <li key={"point"+pointIndex}>&emsp;&emsp;&emsp;{`- ${point}`}</li>
                 ))}
             </div>
         </>
@@ -49,7 +49,7 @@ function ArticleSubSubSection({subSection, index}: {subSection: ArticleBodyMainS
             <h3 className="w-full text-2xl">&emsp;{`${subSection.heading}`}</h3>
             <div className="rounded-lg p-2">
                 {subSection.subPoints.map((subPoint, subPointIndex) => (
-                    <ArticleSubSubSubSection subSection={subPoint} index={subPointIndex} />
+                    <ArticleSubSubSubSection key={"subsubsection"+subPointIndex} subSection={subPoint} index={subPointIndex} />
                 ))}
             </div>
         </>
@@ -63,7 +63,7 @@ function ArticleMainSubSection({mainSubSection, index}: {mainSubSection: Article
             <h2 className="text-2xl text-gray-700 mt-4">{`${mainSubSection.heading}`}</h2>
             <div className="bg-gray-400 bg-opacity-10 rounded-lg shadow-lg">
                 {mainSubSection.subSections.map((subSection, subIndex) => (
-                    <ArticleSubSubSection subSection={subSection} index={subIndex} />
+                    <ArticleSubSubSection key={"subsection"+subIndex} subSection={subSection} index={subIndex} />
                 ))}
             </div>
         </>
@@ -79,11 +79,11 @@ export default function Article({ article }: ArticleProps) {
             <h4 className="text-sm">{article.date}</h4>
             <p className="mt-8">
                 <title>{article.body.heading}</title>
-                <ul>
+                <div>
                     {article?.body.mainSections.map((mainSection, index) => (
-                        <ArticleMainSubSection mainSubSection={mainSection} index={index} />
+                        <ArticleMainSubSection key={"mainsection"+index} mainSubSection={mainSection} index={index} />
                     ))}
-                </ul>
+                </div>
             </p>
         </div>
     );
