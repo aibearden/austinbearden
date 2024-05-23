@@ -2,8 +2,7 @@
 
 import { profile } from "@/data/profile";
 import profileBackgroundImage from "../../../assets/horse_ride.jpeg";
-import Link from "next/link";
-import ListOfRecommendations from "@/app/recommendations/ListOfRecommendations";
+import ListOfRecommendations from "./ListOfRecommendations";
 
 interface ProfileDataInterface {
     name: string,
@@ -35,7 +34,7 @@ export default function Profile({ }: ProfileProps) {
         window.open(profileData.sourceCodeUrl, "_blank");
     }
 
-    const buttonStyle = "p-1 bg-green-400 m-2 rounded-lg text-left pl-4";
+    const buttonStyle = "p-1 bg-green-400 bg-opacity-80 m-2 rounded-lg text-left pl-4";
 
     return (
         <div className="h-full w-full grid grid-rows-13">
@@ -51,7 +50,7 @@ export default function Profile({ }: ProfileProps) {
                 </div>
             </div>
             <div id="body" className="w-full row-span-5 grid grid-cols-8">
-                <div id="description" className="h-full col-span-5 bg-blue_font bg-opacity-50 p-8 rounded-2xl shadow-md overflow-y-auto m-8 mr-4 whitespace-pre-wrap">
+                <div id="description" className="h-full col-span-5 bg-blue_font bg-opacity-50 p-4 rounded-2xl shadow-md overflow-y-auto m-8 mr-4 whitespace-pre-wrap">
                     {profileData.description}
                 </div>
                 <div id="links" className="h-full col-span-3 bg-gray-50 bg-opacity-60 p-2 rounded-2xl shadow-md overflow-y-auto m-8 ml-2 grid grid-rows-6">

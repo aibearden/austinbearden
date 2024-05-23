@@ -14,7 +14,7 @@ interface RecommendationProps {
 export default function Recommendation({recommendation}: RecommendationProps) {
     
     return (
-        <div className="m-4 flex flex-col justify-center rounded-2xl shadow-md shadow-green-400 mb-6 bg-gray-400 bg-opacity-70">
+        <div className="m-4 mb-0 flex flex-col justify-center rounded-2xl shadow-md shadow-green-400 bg-gray-400 bg-opacity-70">
             <div className="rows-span-3 w-full flex flex-row justify-center">
                 <img 
                     src={recommendation.profile_image_url} 

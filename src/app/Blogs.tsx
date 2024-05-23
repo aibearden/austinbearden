@@ -1,4 +1,4 @@
-import SecondaryLayout from "../SecondaryLayout";
+import SecondaryLayout from "./SecondaryLayout";
 import { articles } from "@/data/articles";
 import Article, { ArticleInterface } from "./Article";
 

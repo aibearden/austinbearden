@@ -1,8 +1,7 @@
 "use client"
 
 import { recommendations } from "@/data/recommendationsdata";
-import Recommendation, { RecommendationInterface } from "./Recommendation";
-import SecondaryLayout from "../SecondaryLayout";
+import Recommendation, {RecommendationInterface} from "./Recommendation";
 
 export default function ListOfRecommendations() {
 
