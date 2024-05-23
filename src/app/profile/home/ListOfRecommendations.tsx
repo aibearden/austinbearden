@@ -6,9 +6,9 @@ import Recommendation, {RecommendationInterface} from "./Recommendation";
 export default function ListOfRecommendations() {
 
     return (
-        <div className="w-full h-full grid grid-cols-2 p-4 pt-10">
-            {(recommendations as RecommendationInterface[]).map((recommendation) => (
-                <Recommendation key={recommendation.author} recommendation={recommendation} />
+        <div className="h-full grid grid-cols-2 p-4 pt-10">
+            {(recommendations as RecommendationInterface[]).map((recommendation, index) => (
+                <Recommendation key={index} recommendation={recommendation} />
             ))}
         </div>
     );
