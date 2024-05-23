@@ -1,17 +1,19 @@
 "use client"
 
 import { profile } from "@/data/profile";
-import profileBackgroundImage from "../../../assets/self_bg_bw.jpeg";
+import profileBackgroundImage from "../../../assets/horse_ride.jpeg";
 import Link from "next/link";
+import ListOfRecommendations from "@/app/recommendations/ListOfRecommendations";
 
 interface ProfileDataInterface {
     name: string,
     profileImageUrl: string,
     title: string,
     description: string,
-    tagLine: string,
     githubUrl: string,
-    linkedInUrl: string
+    linkedInUrl: string,
+    sourceCodeUrl: string,
+    tagLine: string
 }
 
 interface ProfileProps {
@@ -21,31 +23,54 @@ interface ProfileProps {
 export default function Profile({ }: ProfileProps) {
     const profileData = profile as ProfileDataInterface;
 
-    const buttonStyles = "w-full h-[100px] bg-gray-600 bg-opacity-70 justify-self-center m-2 p-2 rounded-lg shadow-lg whitespace-break-spaces";
-   
+    const openLinkedInProfile = () => {
+        window.open(profileData.linkedInUrl, "_blank");
+    }
+
+    const openGitHubProfile = () => {
+        window.open(profileData.githubUrl, "_blank");
+    }
+
+    const openSourceCode = () => {
+        window.open(profileData.sourceCodeUrl, "_blank");
+    }
+
+    const buttonStyle = "p-1 bg-green-400 m-2 rounded-lg text-left pl-4";
+
     return (
-        <div className="h-full sm:w-full md:w-full lg:w-2/3 w-full grid grid-rows-3">
-            <div className="flex flex-col items-end">
-                <img src={profileBackgroundImage.src} className="absolute xs:w-full sm:w-full md:w-full lg:w-2/3 w-full bg-fixed bg-top xs:h-1/5 sm:h-1/5 md:h-1/4 lg:h-1/4 h-1/5 min-h-[150px] object-cover blur-sm" alt="profile image" />
-                <div className="z-10 w-full flex flex-row justify-end items-center">
-                    <span className="flex flex-col justify-evenly items-end h-1/2 mr-4">
-                        <h2 className="sm:text-2xl md:text-3xl lg:text-5xl text-2xl text-gray-600 text-end">{profileData.name}</h2>
-                        <h4 className="sm:text-2xl lg:text-3xl text-xl text-gray-50 text-end">{profileData.title}</h4>
-                        <h5 className="sm:text-lg md:text-xl lg:text-2xl text-lg text-blue-600 text-end">{profileData.tagLine}</h5>
+        <div className="h-full w-full grid grid-rows-13">
+            <img src={profileBackgroundImage.src} className="absolute w-full h-full bg-fixed bg-top object-cover blur-sm -z-10" alt="profile image" />
+            <div className="row-span-2 z-10">
+                <div className="w-full flex flex-row justify-end items-center bg-slate-400 bg-opacity-80 shadow-md">
+                    <span className="flex flex-col justify-center items-end mr-10">
+                        <h2 className="text-4xl text-gray-600 text-end">{profileData.name}</h2>
+                        <h4 className="text-2xl text-gray-50 text-end">{profileData.title}</h4>
+                        <h5 className="text-lg text-blue-600 text-end">{profileData.tagLine}</h5>
                     </span>
-                    <img src={profileData.profileImageUrl} className="shadow-lg rounded-full max-w-[400px] w-1/5 h-auto m-4" alt="profile image" />
+                    <img src={profileData.profileImageUrl} className="shadow-lg rounded-full w-28 m-4" alt="profile image" />
                 </div>
             </div>
-            <div id="body" className="w-full h-full flex flex-col justify-start items-center">
-                <div id="description" className="w-11/12 h-full bg-blue_font bg-opacity-50 p-8 rounded-2xl shadow-lg overflow-y-auto">{profileData.description}</div>
-            </div>
-            <div id="footer" className="w-full mt-10 flex flex-col justify-between items-center">
-                <div id="navigation" className="w-11/12 flex flex-row justify-center items-baseline">
-                    <Link className={buttonStyles} href="/recommendations">Recommendations</Link>
-                    <Link className={buttonStyles} href="/articles">Articles</Link>
-                    <Link className={buttonStyles} href="/links">Profile Links</Link>
+            <div id="body" className="w-full row-span-5 grid grid-cols-8">
+                <div id="description" className="h-full col-span-5 bg-blue_font bg-opacity-50 p-8 rounded-2xl shadow-md overflow-y-auto m-8 mr-4 whitespace-pre-wrap">
+                    {profileData.description}
                 </div>
-                <span className="self-end p-4">Bright Idea Realities | 2024</span>
+                <div id="links" className="h-full col-span-3 bg-gray-50 bg-opacity-60 p-2 rounded-2xl shadow-md overflow-y-auto m-8 ml-2 grid grid-rows-6">
+                    <button id="github" onClick={() => openGitHubProfile()} className={buttonStyle}>
+                        <h4>Github</h4>
+                    </button>
+                    <button id="linkedin" onClick={() => openLinkedInProfile()} className={buttonStyle}>
+                        <h4>Linkedin</h4>
+                    </button>
+                    <button id="source-code" onClick={() => openSourceCode()} className={buttonStyle}>
+                        <h4>Project Source Code</h4>
+                    </button>
+                </div>
+            </div>
+            <div id="recommendations" className="row-span-5">
+                <ListOfRecommendations />
+            </div>
+            <div id="footer" className="w-full mt-10 flex flex-col justify-between items-center row-span-1">
+                <span className="self-end p-4 text-white">Bright Idea Realities | 2024</span>
             </div>
         </div>
     );

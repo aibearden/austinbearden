@@ -14,7 +14,7 @@ interface RecommendationProps {
 export default function Recommendation({recommendation}: RecommendationProps) {
     
     return (
-        <div className="w-full p-4 flex flex-col justify-center rounded-2xl shadow-md shadow-yellow-400 mb-6 bg-gray-400 bg-opacity-50">
+        <div className="m-4 flex flex-col justify-center rounded-2xl shadow-md shadow-green-400 mb-6 bg-gray-400 bg-opacity-70">
             <div className="rows-span-3 w-full flex flex-row justify-center">
                 <img 
                     src={recommendation.profile_image_url} 
@@ -24,9 +24,9 @@ export default function Recommendation({recommendation}: RecommendationProps) {
             </div>
             <div className="rows-span-1">
                 <h2 className="text-2xl text-gray-50 text-center">{recommendation.author}</h2>
-                <h3 className="text-lg text-blue-800 text-center">{recommendation.title}</h3>
+                <h3 className="text-xl text-blue-800 text-center">{recommendation.title}</h3>
             </div>
-            <p className="rows-span-3 p-4 pl-8 pr-8 text-sm">{recommendation.note}</p>
+            <p className="rows-span-3 p-4 pl-8 pr-8 text-lg">{recommendation.note}</p>
         </div>
     );
 }
